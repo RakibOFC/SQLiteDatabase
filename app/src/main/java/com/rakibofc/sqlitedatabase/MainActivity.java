@@ -28,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
         bexit = findViewById(R.id.bexit);
 
         db = openOrCreateDatabase("Mydb", MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS student(name VARCHAR,college VARCHAR); ");
+        db.execSQL("CREATE TABLE IF NOT EXISTS student(name VARCHAR, college VARCHAR); ");
 
         binsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nam = ename.getText().toString();
                 coll = ecollege.getText().toString();
-                db.execSQL("INSERT INTO student VALUES('" + nam + "’,’" + coll + "');");
+                db.execSQL("INSERT INTO student VALUES('" + nam + "','" + coll + "');");
                 Toast.makeText(getApplicationContext(), "Row Inserted", Toast.LENGTH_SHORT).show();
             }
         });
@@ -43,11 +43,10 @@ public class MainActivity extends AppCompatActivity {
         bdisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PreviewActivity.class);
 
+                Intent intent = new Intent(getApplicationContext(), PreviewActivity.class);
                 startActivity(intent);
                 finish();
-
             }
         });
 
